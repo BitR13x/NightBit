@@ -1,0 +1,6 @@
+.alertContainer {
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

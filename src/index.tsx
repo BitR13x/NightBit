@@ -1,19 +1,33 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import RoutesPaths from './Routes';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from "react-redux"
-import './index.css'
-import store from './store/index'
-import setAuthorizationToken  from './authorization/authorization';
+import { Provider } from "react-redux";
+import './index.css';
+import store from './store/index';
+import setAuthorizationToken from './authorization/authorization';
 import { LOGIN_SUCCESS } from './store/modules/auth/authTypes';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: "#311b92",
+      contrastText: '#fff'
+    },
+    secondary: {
+      main: '#1e88e5',
+      contrastText: '#fff'
+    }
+  }
+});
 
 //when the page reloads, the auth user is still set
-if (localStorage.token){
-  setAuthorizationToken(localStorage.token) 
+if (localStorage.token) {
+  setAuthorizationToken(localStorage.token)
   let userData = localStorage.getItem('user_data') == null ? null : JSON.parse(localStorage.getItem('user_data'))
-  store.dispatch({ type: LOGIN_SUCCESS, payload: userData}) //provided he has a valid token 
+  store.dispatch({ type: LOGIN_SUCCESS, payload: userData }) //provided he has a valid token 
 }
 
 const rootElement = document.getElementById('root');
@@ -22,9 +36,11 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RoutesPaths />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <RoutesPaths />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
