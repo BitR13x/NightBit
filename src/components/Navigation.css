@@ -299,6 +299,7 @@ body.dark .home .text{
     display: inline-block;
     position: relative;
   }
+  div.content { margin-left: 0; margin-right: 0;}
   .sidebar .toggle, .sidebar .image-text, 
   .sidebar .nav-text, .sidebar .search-box {
     display: none !important;

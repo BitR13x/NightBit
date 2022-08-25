@@ -76,12 +76,12 @@ const Navigation = () => {
                 </Link>
             </li>
             <li className="nav-link">
-                <a onClick={logout}>
+                <Link to="#" onClick={logout}>
                     <i className='icon' >
                         <LogoutOutlined />
                     </i>
                     <span className="text nav-text">Logout</span>
-                </a>
+                </Link>
             </li>
         </React.Fragment>
 

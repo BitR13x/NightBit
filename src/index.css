@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
 html, body {
   min-height: 100vh;
   font-size: medium;
@@ -43,4 +45,8 @@ body {
 .outside-link:hover {
   color: #1e2be5;
   cursor: pointer;
+}
+
+.App {
+  margin-top: 8vh;
 }

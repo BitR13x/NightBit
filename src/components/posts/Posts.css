@@ -1,0 +1,75 @@
+/* .editor {
+    height: 80vh;
+    border: none;
+    resize: vertical;
+    overflow: hidden;
+    outline: none;
+
+    padding: 10px;
+
+    background: rgb(40, 44, 52) none repeat scroll 0% 0%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+    color: rgb(197, 200, 198);
+    text-shadow: rgba(0, 0, 0, 0.3) 0px 1px;
+    font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+    tab-size: 4;
+
+    padding: 1em;
+    margin: 0.5em 0px;
+    overflow: auto;
+    border-radius: 0.3em;
+} */
+
+
+.content {
+    margin-top: 2vh;
+    margin-left: 8vw;
+    margin-right: 8vw;
+}
+
+.centerMe {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+#mui-rte-toolbar {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 3vh;
+}
+
+.post-content {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    background-color: rgb(40, 44, 52);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .post-content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #mui-rte-toolbar {
+        display: block;
+        justify-content: left;
+        overflow: hidden;
+    }
+}
+
+/* .editorWrapper {
+    background: rgb(40, 44, 52) none repeat scroll 0% 0%;
+} */

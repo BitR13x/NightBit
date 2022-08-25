@@ -6,8 +6,8 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Dashboard from './components/Dashboard';
 
-/* import CreatePost from './components/posts/CreatePost';
-import Profile from './components/users/Profile';
+import CreatePost from './components/posts/CreatePost';
+/* import Profile from './components/users/Profile';
 import ForgotPassword from './components/users/ForgotPassword';
 import ResetPassword from './components/users/ResetPassword';
 import PostDetails from './components/posts/PostDetails'
@@ -16,7 +16,7 @@ import AuthPosts from './components/posts/AuthPosts' */
 
 const RoutesPaths = () => {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Navigation />
         <Routes>
@@ -25,7 +25,7 @@ const RoutesPaths = () => {
           <Route exact path='/' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Register />} />
-          {/* <Route path='/createpost' element={<CreatePost />} /> */}
+          <Route path='/createpost' element={<CreatePost />} />
           {/* <Route path='/profile/:id' element={<Profile />} /> */}
           {/* <Route path='/forgotpassword' element={<ForgotPassword />} /> */}
           {/* <Route path='/resetpassword/:token' element={<ResetPassword />} /> */}

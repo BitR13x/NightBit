@@ -10,7 +10,8 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "jsx": "react-jsx",
-      "sourceMap": true
+      "sourceMap": true,
+      "skipLibCheck": true
    },
    "include": [
       "./src/**/**/*.tsx"
