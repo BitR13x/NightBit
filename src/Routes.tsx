@@ -1,11 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Navigation from './components/Navigation';
 
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import Dashboard from './components/Dashboard';
 
+import Main from './pages/Main'
 import CreatePost from './components/posts/CreatePost';
 /* import Profile from './components/users/Profile';
 import ForgotPassword from './components/users/ForgotPassword';
@@ -21,8 +20,8 @@ const RoutesPaths = () => {
         <Navigation />
         <Routes>
           {/* 
-              //@ts-ignore */}
-          <Route exact path='/' element={<Dashboard />} />
+          //@ts-ignore */}
+          <Route exact path='/' element={<Main />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Register />} />
           <Route path='/createpost' element={<CreatePost />} />

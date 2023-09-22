@@ -1,5 +1,5 @@
-const { NODE_ENV, PUBLIC_URL } = require("./config.json");
-let API_ROUTE : string;
+import { NODE_ENV, PUBLIC_URL } from "./constants";
+let API_ROUTE: string;
 
 NODE_ENV === 'development'
   ? API_ROUTE = 'http://127.0.0.1:8888/api/v1'

@@ -1,13 +1,17 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Provider } from "react-redux";
+
 import RoutesPaths from './Routes';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from "react-redux";
-import './index.css';
-import store from './store/index';
 import setAuthorizationToken from './authorization/authorization';
+
+import store from './store/index';
 import { LOGIN_SUCCESS } from './store/modules/auth/authTypes';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+import './index.css';
+
 
 const theme = createTheme({
   palette: {
