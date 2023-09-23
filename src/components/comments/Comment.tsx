@@ -2,7 +2,7 @@ import React from 'react'
 import Moment from 'react-moment';
 
 import {
-  Card, CardContent, Typography
+  Card, CardContent, Typography, CardHeader
 } from '@mui/material';
 
 import '../posts/Posts.css';
@@ -29,8 +29,7 @@ const Comment = ({ comment }) => {
   return (
     <div className="mt-3">
       <Card>
-
-        <CardContent>
+        <CardHeader>
           {comment.user ?
             <span>
               <span>
@@ -46,6 +45,8 @@ const Comment = ({ comment }) => {
               </span>
             </span>
             : ""}
+        </CardHeader>
+        <CardContent>
           <Typography variant="body2" color="text.secondary">
             {comment.body}
           </Typography>

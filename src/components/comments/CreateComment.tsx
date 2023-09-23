@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, Typography, Box } from '@mui/material';
 import { FaRegComment } from 'react-icons/fa'
 
 import { createComment } from '../../store/modules/comments/actions'
 import { useAppDispatch, useAppSelector } from '../../types/hooks';
 
-const CreateComment = ({ postID, className }) => {
+const CreateComment = ({ postID = null }) => {
 
   const [modal, setModal] = useState(false);
   const [body, setBody] = useState("")
@@ -42,33 +41,39 @@ const CreateComment = ({ postID, className }) => {
     <span>
       <FaRegComment className="style-heart " onClick={toggle} />
 
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Comment</ModalHeader>
-        <ModalBody>
-          <textarea name="body" style={{ width: "100%", height: "150px" }} onChange={handleChange}></textarea>
-          {currentState.commentsReducer.commentsError && currentState.commentsReducer.commentsError.Required_body ? (
-            <small className="color-red">{currentState.commentsReducer.commentsError.Required_body}</small>
-          ) : (
-            ""
-          )}
-        </ModalBody>
-        <ModalFooter>
-          {currentState.commentsReducer.isLoading ? (
-            <button className="btn btn-primary"
-              disabled
-            >
-              Saving...
-            </button>
-          ) : (
-            <button className="btn btn-primary"
-              onClick={submitComment}
-              type="submit"
-            >
-              Comment
-            </button>
-          )}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
+      <Modal
+        open={modal}
+        onClose={toggle}
+        aria-labelledby="parent-modal-title"
+        aria-describedby="parent-modal-description">
+        <Box>
+          <Typography id="transition-modal-title" variant="h6" component="h2">Comment</Typography>
+          <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+            <textarea name="body" style={{ width: "100%", height: "150px" }} onChange={handleChange}></textarea>
+            {currentState.commentsReducer.commentsError && currentState.commentsReducer.commentsError.Required_body ? (
+              <small className="color-red">{currentState.commentsReducer.commentsError.Required_body}</small>
+            ) : (
+              ""
+            )}
+          </Typography>
+          <Typography>
+            {currentState.commentsReducer.isLoading ? (
+              <button className="btn btn-primary"
+                disabled
+              >
+                Saving...
+              </button>
+            ) : (
+              <button className="btn btn-primary"
+                onClick={submitComment}
+                type="submit"
+              >
+                Comment
+              </button>
+            )}
+            <Button color="secondary" onClick={toggle}>Cancel</Button>
+          </Typography>
+        </Box>
       </Modal>
     </span>
   );
