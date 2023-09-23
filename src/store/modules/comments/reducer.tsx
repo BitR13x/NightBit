@@ -7,7 +7,10 @@ import {
 export const initState = {
   commentItems: [],
   isLoading: false,
-  commentSuccess: false
+  commentSuccess: null,
+  commentError: null,
+  commentsError: null,
+  commentsSuccess: null
 };
 
 const commentsReducer = (state = initState, { payload, type }) => {
