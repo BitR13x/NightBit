@@ -56,7 +56,7 @@ const CreateComment = ({ postID = null }) => {
               ""
             )}
           </Typography>
-          <Typography>
+          <div>
             {currentState.commentsReducer.isLoading ? (
               <button className="btn btn-primary"
                 disabled
@@ -72,7 +72,7 @@ const CreateComment = ({ postID = null }) => {
               </button>
             )}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </Typography>
+          </div>
         </Box>
       </Modal>
     </span>
