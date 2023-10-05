@@ -45,7 +45,8 @@ const CreateComment = ({ postID = null }) => {
         open={modal}
         onClose={toggle}
         aria-labelledby="parent-modal-title"
-        aria-describedby="parent-modal-description">
+        aria-describedby="parent-modal-description"
+      >
         <Box>
           <Typography id="transition-modal-title" variant="h6" component="h2">Comment</Typography>
           <Typography id="transition-modal-description" sx={{ mt: 2 }}>

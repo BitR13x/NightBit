@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Moment from 'react-moment';
-import { Card, CardHeader, IconButton, Avatar, Typography, Box } from "@mui/material";
+import { Card, CardHeader, CardContent, IconButton, Avatar, Typography, Box } from "@mui/material";
 import { DeleteOutlined } from "@mui/icons-material";
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,10 @@ import { useAppDispatch, useAppSelector } from '../../types/hooks';
 
 import './Posts.css';
 import Default from '../../Assets/default.png';
-
+import Likes from '../likes/Likes'
+import Comments from '../comments/Comments'
+import EditPost from './EditPost';
+import DeletePost from './DeletePost'
 
 const Post = ({ post }) => {
     const [openDialog, setOpenDialog] = useState(false);
@@ -33,13 +36,16 @@ const Post = ({ post }) => {
     return (
         <Card variant="elevation" sx={{ maxWidth: 600, width: "100%" }}>
             <CardHeader title={
-                <Typography variant="h4">
-                    <Link className="outside-link" to={"#"}>{post.name}</Link>
-                </Typography>
+                <>
+                    {$imagePreview && <Avatar alt="PostAvatar" src={$imagePreview} />}
+                    <Typography variant="h4">
+                        <Link className="outside-link" to={"#"}>{post.name}</Link>
+                    </Typography>
+                </>
             }
                 subheader={
                     <Typography>
-                        Subheader
+                        <Moment fromNow>{post.created_at}</Moment>
                     </Typography>
                 }
                 action={
@@ -55,6 +61,21 @@ const Post = ({ post }) => {
 
                     </Box>
                 } />
+
+            <CardContent>
+                <Likes postID={post.id} />
+                <Comments postID={post.id} />
+            </CardContent>
+            {authID === post.author_id ? (
+                <div className="ml-auto">
+                    <span style={{ marginRight: "20px" }}>
+                        <EditPost post={post} />
+                    </span>
+                    <span>
+                        <DeletePost postID={post.id} />
+                    </span>
+                </div>
+            ) : ""}
         </Card>
     )
 }
