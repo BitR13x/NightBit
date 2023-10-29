@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import RoutesPaths from './Routes';
 import * as serviceWorker from './serviceWorker';
-import setAuthorizationToken from './authorization/authorization';
+import setupAxios from './authorization/authorization';
 
 import store from './store/index';
 import { LOGIN_SUCCESS } from './store/modules/auth/authTypes';
@@ -28,8 +28,8 @@ const theme = createTheme({
 });
 
 //when the page reloads, the auth user is still set
-if (localStorage.token) {
-  setAuthorizationToken(localStorage.token)
+if (localStorage.isLogged) {
+  setupAxios(localStorage.isLogged)
   let userData = localStorage.getItem('user_data') == null ? null : JSON.parse(localStorage.getItem('user_data'))
   store.dispatch({ type: LOGIN_SUCCESS, payload: userData }) //provided he has a valid token 
 }

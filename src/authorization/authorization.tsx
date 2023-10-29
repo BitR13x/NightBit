@@ -1,11 +1,7 @@
 import axios from 'axios';
 
-export default function setAuthorizationToken(token: string | boolean){
-  if (token) {
-    axios.defaults.headers.common['Authorization'] =`Bearer ${token}`;
-  } else {
-    delete axios.defaults.headers.common['Authorization'];
-  }
-}
+export default function setupAxios(isLogged: boolean) {
+  axios.defaults.withCredentials = isLogged;
+};
 
 

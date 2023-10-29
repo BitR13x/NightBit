@@ -16,7 +16,7 @@ export const fetchComments = (id: string) => {
         type: GET_COMMENTS_SUCCESS,
         payload: {
           postID: id,
-          comments: res.data.response,
+          comments: res.data,
         }
       })
     } catch (err) {
@@ -34,7 +34,7 @@ export const createComment = (details, commentSuccess) => {
         type: COMMENT_CREATE_SUCCESS,
         payload: {
           postID: details.post_id,
-          comment: res.data.response,
+          comment: res.data,
         }
       });
       commentSuccess();
@@ -53,7 +53,7 @@ export const updateComment = (updateDetails, updateSuccess) => {
       dispatch({
         type: COMMENT_UPDATE_SUCCESS,
         payload: {
-          comment: res.data.response
+          comment: res.data
         }
       })
       updateSuccess()

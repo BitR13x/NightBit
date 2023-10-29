@@ -13,7 +13,6 @@ const PasswordForgot = () => {
   const currentState = useAppSelector((state) => state.Auth);
   const [email, setEmail] = useState('');
   const dispatch = useAppDispatch()
-  //@ts-ignore
   const forgotPass = (userEmail) => dispatch(ForgotPassword(userEmail, clearInput))
 
   const handleChange = e => {

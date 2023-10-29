@@ -9,8 +9,8 @@ export const fetchPosts = () => {
         dispatch({ type: BEFORE_STATE_POST })
         try {
             const res = await axios.get(`${API_ROUTE}/posts`)
-            // console.log("these are the post: ", res.data.response)
-            dispatch({ type: FETCH_POSTS, payload: res.data.response })
+            // console.log("these are the post: ", res.data)
+            dispatch({ type: FETCH_POSTS, payload: res.data })
         } catch (err) {
             dispatch({ type: FETCH_POSTS_ERROR, payload: err.response ? err.respons.data.error : "" })
         }
@@ -22,7 +22,7 @@ export const fetchPost = (id) => {
         dispatch({ type: BEFORE_STATE_POST })
         try {
             const res = await axios.get(`${API_ROUTE}/posts/${id}`)
-            dispatch({ type: GET_POST_SUCCESS, payload: res.data.response })
+            dispatch({ type: GET_POST_SUCCESS, payload: res.data })
         } catch (err) {
             dispatch({ type: GET_POST_ERROR, payload: err.response.data.error })
             history.push('/'); //incase the user manually enter the param that dont exist
@@ -35,7 +35,7 @@ export const fetchAuthPosts = (id) => {
         dispatch({ type: BEFORE_STATE_POST })
         try {
             const res = await axios.get(`${API_ROUTE}/user_posts/${id}`)
-            dispatch({ type: FETCH_AUTH_POSTS, payload: res.data.response })
+            dispatch({ type: FETCH_AUTH_POSTS, payload: res.data })
         } catch (err) {
             dispatch({ type: FETCH_AUTH_POSTS_ERROR, payload: err.response.data.error })
         }
@@ -49,7 +49,7 @@ export const createPost = (createPost) => {
             const res = await axios.post(`${API_ROUTE}/posts`, createPost)
             dispatch({
                 type: CREATE_POST_SUCCESS,
-                payload: res.data.response
+                payload: res.data
             })
             history.push('/');
         } catch (err) {
@@ -65,7 +65,7 @@ export const updatePost = (updateDetails, updateSuccess) => {
             const res = await axios.put(`${API_ROUTE}/posts/${updateDetails.id}`, updateDetails)
             dispatch({
                 type: UPDATE_POST_SUCCESS,
-                payload: res.data.response
+                payload: res.data
             })
             updateSuccess()
         } catch (err) {
@@ -83,7 +83,7 @@ export const deletePost = (id) => {
                 type: DELETE_POST_SUCCESS,
                 payload: {
                     deletedID: id,
-                    message: res.data.response
+                    message: res.data
                 }
             })
             history.push('/');

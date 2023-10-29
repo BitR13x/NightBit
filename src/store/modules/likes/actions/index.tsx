@@ -13,7 +13,7 @@ export const fetchLikes = (id: string) => {
         type: GET_LIKES_SUCCESS,
         payload: {
           postID: id,
-          likes: res.data.response,
+          likes: res.data,
         }
       })
     } catch (err) {
@@ -30,7 +30,7 @@ export const createLike = id => {
         type: LIKE_CREATE_SUCCESS,
         payload: {
           postID: id,
-          oneLike: res.data.response,
+          oneLike: res.data,
         }
       });
     } catch (err) {
